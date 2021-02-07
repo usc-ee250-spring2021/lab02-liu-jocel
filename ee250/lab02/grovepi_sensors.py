@@ -2,7 +2,7 @@
 
 """ EE 250L Lab 02: GrovePi Sensors
 
-List team members here.
+Jocelyn Liu
 
 Insert Github repository link here.
 """
@@ -42,18 +42,19 @@ if __name__ == '__main__':
         time.sleep(0.2)
 	threshold = grovepi.analogRead(POT)
 	dist = grovepi.ultrasonicRead(PORT)
-
+	#Case when distance is within threshold
 	if dist <= threshold:
 	   l1 = str(threshold)+" cm OBJ PRES"
 	   mask = " "
-	   while len(l1+mask) < 16:
+	   while len(l1+mask) < 16: #Mask til end of line 1 to cover up OBJ PRES if digits change
 		mask += " "
 	   setText_norefresh(l1+mask+"\n"+str(dist)+" cm")
 	   setRGB(255,0,0)
+	#Case when distance is outside threshold
 	else:
 	   l1 = str(threshold)+" cm"
 	   mask = " "
-	   while len(l1+mask) < 16:
+	   while len(l1+mask) < 16: #Mask line 1 to cover up OBJ PRES if state or digits change
 		mask += " "
 	   setText_norefresh(l1+mask+"\n"+str(dist)+" cm")
 	   setRGB(0,255,0)
