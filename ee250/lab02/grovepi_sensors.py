@@ -5,7 +5,7 @@
 Jocelyn Liu
 
 Insert Github repository link here.
-"""
+https://github.com/usc-ee250-spring2021/lab02-liu-jocel/edit/lab02/ee250/lab02
 
 """python3 interpreters in Ubuntu (and other linux distros) will look in a 
 default set of directories for modules when a program tries to `import` one. 
@@ -42,6 +42,7 @@ if __name__ == '__main__':
         time.sleep(0.2)
 	threshold = grovepi.analogRead(POT)
 	dist = grovepi.ultrasonicRead(PORT)
+	
 	#Case when distance is within threshold
 	if dist <= threshold:
 	   l1 = str(threshold)+" cm OBJ PRES"
@@ -50,6 +51,7 @@ if __name__ == '__main__':
 		mask += " "
 	   setText_norefresh(l1+mask+"\n"+str(dist)+" cm")
 	   setRGB(255,0,0)
+	   
 	#Case when distance is outside threshold
 	else:
 	   l1 = str(threshold)+" cm"
